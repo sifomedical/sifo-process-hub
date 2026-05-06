@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { fallbackSopDraft, getOpenAIClient } from "@/lib/ai";
 import { env } from "@/lib/env";
 
+export const runtime = "nodejs";
+
 export async function POST(request: Request) {
   const body = (await request.json().catch(() => ({}))) as { transcript?: string; prompt?: string };
   const source = body.transcript ?? body.prompt ?? "";

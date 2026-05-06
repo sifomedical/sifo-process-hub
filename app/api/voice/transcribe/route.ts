@@ -2,6 +2,8 @@ import { NextResponse } from "next/server";
 import { getOpenAIClient } from "@/lib/ai";
 import { env } from "@/lib/env";
 
+export const runtime = "nodejs";
+
 export async function POST(request: Request) {
   const client = getOpenAIClient();
   const formData = await request.formData().catch(() => null);
